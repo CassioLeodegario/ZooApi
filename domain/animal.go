@@ -29,7 +29,7 @@ type AnimalServiceInterface interface {
 }
 
 type AnimalReader interface {
-	get(id string) (AnimalInterface, error)
+	Get(id string) (AnimalInterface, error)
 }
 
 type AnimalWriter interface {
@@ -54,6 +54,10 @@ type Species struct {
 	Family        string `valid:"required"`
 	Domestication string `valid:"required"`
 	Endangered    string `valid:"required"`
+}
+
+func NewAnimal() *Animal {
+	return &Animal{}
 }
 
 func (a *Animal) IsValid() (bool, error) {
